@@ -30,7 +30,12 @@ export default {
             console.log(error)
         })
     }
-  }
+  },
+  created: {
+    msg: function() {firebase.msg()
+    .then(() => {console.log("Permission Granted")}) 
+    .catch(() => {console.log("Error Occured")})
+    }}
 }
 </script>
 
