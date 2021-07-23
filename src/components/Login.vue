@@ -2,6 +2,7 @@
   <div id="form">
     <div class="form">
       <h2>Login</h2>
+      <p style="color: red">{{err}}</p>
       <input type="text" v-model="email" placeholder="Email" style="width:330px; margin: auto"/>
       <br/>
       <input type="password" v-model="password" v-on:keyup.enter="signUp()" placeholder="Password" style="width:330px"/>
@@ -17,7 +18,8 @@ export default {
   data() {
     return {
     email: '',
-    password: ''
+    password: '',
+    err: ''
     }
   },
   methods: {
@@ -29,9 +31,11 @@ export default {
       })
       .catch(error => {
           console.log(error)
+          this.err = error.message
       })
     }
   }
+  
 }
 </script>
 
@@ -55,6 +59,9 @@ section{
 form{
 	display:flex;
 	padding: 15px; 
+}
+error{
+  color: #711f1b;
 }
 h2{
 	font-family: 'Archivo Black', sans-serif;
