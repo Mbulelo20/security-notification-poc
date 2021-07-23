@@ -1,12 +1,12 @@
 <template>
   <div id="form">
-    <form>
   <h2>Sign Up</h2>
   
   <input type="text" v-model="email" placeholder="Email" style="width:330px; margin: auto"/>
-  <input type="password" v-model="password" v-on:keyup.enter="signUp()" placeholder="Password" />
+  <br/>
+  <input type="password" v-model="password" v-on:keyup.enter="signUp()" placeholder="Password" style="width:330px" />
+  <br/>
   <button v-on:click="signUp()">Sign up</button>
- </form>
   </div>
 </template>
 
@@ -48,16 +48,6 @@ html, body{
 	font-family: 'Work Sans', sans-serif;
 }
 
-body{
-  background-size: cover;
-  align-items: center;
-  background-image:url('https://images-assets.nasa.gov/image/6900952/6900952~orig.jpg');
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #fff;
-}
-
 section{
 	background-color: rgba(0, 0, 0, 0.72);
 	width:25%;
@@ -78,13 +68,11 @@ h2{
 	margin-left:auto;
 	margin-right:auto;
 }
-
 .info.good{
 	border:1px solid #416d50;
 	background-color: #47cf73;
 	color:#416d50;
 }
-
 input{
 	height:35px;
 	padding: 5px 5px;
@@ -106,7 +94,6 @@ button{
 button:hover{
 	background-color:#711f1b;
 }
-
 @-webkit-keyframes shake{
 	from, to{
 		-webkit-transform: translate3d(0, 0, 0);
@@ -121,13 +108,11 @@ button:hover{
 		transform:translate(10px,0,0);
 	}
 }
-
 .shake{
 	animation-name: shake;
 	animation-duration:1s;
 	/*animation-fill-mode: both;*/
 }
-
 @media screen and (max-width: 780px) {
 	section{
 		width:90%;

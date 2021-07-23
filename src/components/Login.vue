@@ -1,26 +1,23 @@
 <template>
   <div id="form">
-    <form>
-  <h2>Login</h2>
-  
-  <input type="text" v-model="email" placeholder="Email" style="width:330px; margin: auto"/>
-  <p v-if="emailFormatValid == false">error</p>
-  <input type="password" v-model="password" v-on:keyup.enter="login()" placeholder="Password" />
-  <button v-on:click="login()">Log in</button>
-  <router-link to="/signup">Or signup</router-link>
- </form>
+    <div class="form">
+      <h2>Login</h2>
+      <input type="text" v-model="email" placeholder="Email" style="width:330px; margin: auto"/>
+      <br/>
+      <input type="password" v-model="password" v-on:keyup.enter="signUp()" placeholder="Password" style="width:330px"/>
+      <br/><button v-on:click="login()">Login</button>
+    </div>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase';
 export default {
-  name: 'Login',
+  name: 'login',
   data() {
     return {
     email: '',
-    password: '',
-    emailFormatValid: true
+    password: ''
     }
   },
   methods: {
@@ -32,15 +29,9 @@ export default {
       })
       .catch(error => {
           console.log(error)
-          
       })
-    }    
-  },
-  created: {
-    msg: function() {firebase.msg()
-    .then(() => {console.log("Permission Granted")}) 
-    .catch(() => {console.log("Error Occured")})
-    }}
+    }
+  }
 }
 </script>
 
@@ -50,16 +41,6 @@ html, body{
 	height:100%;
 	margin:0px;
 	font-family: 'Work Sans', sans-serif;
-}
-
-body{
-  background-size: cover;
-  align-items: center;
-  background-image:url('https://images-assets.nasa.gov/image/6900952/6900952~orig.jpg');
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #fff;
 }
 
 section{
@@ -73,7 +54,6 @@ section{
 }
 form{
 	display:flex;
-	flex-direction:column;
 	padding: 15px; 
 }
 h2{
@@ -82,13 +62,11 @@ h2{
 	margin-left:auto;
 	margin-right:auto;
 }
-
 .info.good{
 	border:1px solid #416d50;
 	background-color: #47cf73;
 	color:#416d50;
 }
-
 input{
 	height:35px;
 	padding: 5px 5px;
@@ -110,7 +88,6 @@ button{
 button:hover{
 	background-color:#711f1b;
 }
-
 @-webkit-keyframes shake{
 	from, to{
 		-webkit-transform: translate3d(0, 0, 0);
@@ -125,13 +102,11 @@ button:hover{
 		transform:translate(10px,0,0);
 	}
 }
-
 .shake{
 	animation-name: shake;
 	animation-duration:1s;
 	/*animation-fill-mode: both;*/
 }
-
 @media screen and (max-width: 780px) {
 	section{
 		width:90%;

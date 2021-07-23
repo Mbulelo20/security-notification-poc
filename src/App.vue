@@ -1,3 +1,4 @@
+  
 <template>
   <div id="app">
     <router-view></router-view>
@@ -28,7 +29,6 @@ export default {
     .catch(function(err) {
         console.log("Unable to get permission to notify.", err);
     });
-
     messaging.onMessage(function(payload) {
     console.log("Message received. ", payload);
     // ...
