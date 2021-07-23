@@ -2,7 +2,7 @@
   <div id="form">
     <div class="form" style="margin-top: 12em">
       <h2>Login</h2>
-      <p style="color: red">{{err}}</p>
+      <h6 style="color: red">{{err}}</h6>
       <input type="text" v-model="email" placeholder="Email" style="width:330px; margin: auto"/>
       <br/>
       <input type="password" v-model="password" v-on:keyup.enter="signUp()" placeholder="Password" style="width:330px"/>

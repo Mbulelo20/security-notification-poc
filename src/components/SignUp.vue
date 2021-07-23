@@ -1,14 +1,14 @@
 <template>
   <div id="form" style="margin-top: 12em">
   <h2>Sign Up</h2>
-  
+  <h6 style="color: #F88379">{{err}}</h6>
   <input type="text" v-model="email" placeholder="Email" style="width:330px; margin: auto"/>
   <br/>
   <input type="password" v-model="password" v-on:keyup.enter="signUp()" placeholder="Password" style="width:330px" />
   <br/>
   <button v-on:click="signUp()">Sign up</button>
   <router-link to="/">
-        <h6>Login</h6>
+        <h4>Login</h4>
       </router-link>
   </div>
 </template>
@@ -20,26 +20,32 @@ export default {
   data() {
     return {
     email: '',
-    password: ''
+    password: '',
+    err: ''
     }
   },
   methods: {
-      signUp: function() {
-        firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-        .then( user => {
-            console.log(user.user.bc)
-            this.$router.push('/home')
-        })
-        .catch(error => {
-            console.log(error)
-        })
+    signUp: function() {
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+      .then( user => {
+          console.log(user.user.bc)
+          this.$router.push('/home')
+      })
+      .catch(error => {
+        console.log(error)
+                  this.err = error.message
+
+      })
     }
   },
   created: {
     msg: function() {firebase.msg()
     .then(() => {console.log("Permission Granted")}) 
-    .catch(() => {console.log("Error Occured")})
-    }}
+    .catch(() => {
+      console.log("Error Occured")
+      
+    })
+  }}
 }
 </script>
 
