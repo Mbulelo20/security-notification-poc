@@ -1,5 +1,5 @@
 <template>
-  <div id="form">
+  <div id="form" style="margin-top: 12em">
   <h2>Sign Up</h2>
   
   <input type="text" v-model="email" placeholder="Email" style="width:330px; margin: auto"/>
@@ -7,6 +7,9 @@
   <input type="password" v-model="password" v-on:keyup.enter="signUp()" placeholder="Password" style="width:330px" />
   <br/>
   <button v-on:click="signUp()">Sign up</button>
+  <router-link to="/">
+        <h6>Login</h6>
+      </router-link>
   </div>
 </template>
 

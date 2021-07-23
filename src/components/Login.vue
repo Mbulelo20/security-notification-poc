@@ -1,12 +1,15 @@
 <template>
   <div id="form">
-    <div class="form">
+    <div class="form" style="margin-top: 12em">
       <h2>Login</h2>
       <p style="color: red">{{err}}</p>
       <input type="text" v-model="email" placeholder="Email" style="width:330px; margin: auto"/>
       <br/>
       <input type="password" v-model="password" v-on:keyup.enter="signUp()" placeholder="Password" style="width:330px"/>
       <br/><button v-on:click="login()">Login</button>
+      <router-link to="/signup">
+        <h6>Or sign up</h6>
+      </router-link>
     </div>
   </div>
 </template>
